@@ -239,12 +239,12 @@ class ProductsController extends Controller{
         $mixture->trade_name = $trade_name;
         $mixture->company_id = (isset($data['mixture']['dobavljac']) ? $data['mixture']['dobavljac'] : null);
         $mixture->content    = json_encode($data);
+
         if($mixture->save()){
             return response()->json([
                 "success" => "Uspesno ste sacuvali smesu.",
             ]);
         }
-        print_r($mixture);
     }
     
     public function specUpload(Request $request){
@@ -315,6 +315,7 @@ class ProductsController extends Controller{
         $content      = "content_".$locale;
         $ingredients  = Ingredients::select($name,"id",$content)->get();
         $ids          = $data->mixture->inci_name->id;
+
         $out = "";
         $out .='
         <div class="row fh_karakterisitke canClone mixture-'.$id.'" data_id="'.$id.'" data_index="'.$data_index.'" chapter_id="'.$chapter_id.'">
@@ -352,7 +353,7 @@ class ProductsController extends Controller{
                     <label class="form-label" for="fh_reference[id-'.$data_index.']">Koncentracija:</label>
                     <input class="form-control form-input-replace main_conc" id="fh_reference[id-'.$data_index.']" value="'.$data->mixture->koncentracija.'" name="items[id-'.$data_index.'][data][content]['.$id.'][koncentracija]" type="text">
                 </div>
-                <div class="col-xl-1 position-relative">
+                <div class="col-xl-2 position-relative">
                     <label class="form-label" for="fh_reference[id-'.$data_index.']">Necistoce:</label>
                     <input class="form-control form-input-replace" id="fh_reference[id-'.$data_index.']" value="'.$data->mixture->necistoce.'" name="items[id-'.$data_index.'][data][content]['.$id.'][necistoce]" type="text">
                 </div>
@@ -360,18 +361,32 @@ class ProductsController extends Controller{
                     <label class="form-label" for="fh_reference[id-'.$data_index.']">Funkcija:</label>
                     <input class="form-control form-input-replace" id="fh_reference[id-'.$data_index.']" value="'.$data->mixture->funkcija.'" name="items[id-'.$data_index.'][data][content]['.$id.'][funkcija]" type="text">
                 </div>
+                
+
+
+                    
                 <div class="col-xl-1 position-relative file_parent">
-                    <label class="form-label" for="specifikacija[id-'.$data_index.']">Specifikacija:</label>
-                    <input type="hidden" value="'.(isset($data->mixture->specifikacija) ? $data->mixture->specifikacija : "") .'" name="items[id-'.$data_index.'][data][content]['.$id.'][specifikacija]" class="specifikacija form-input-replace" id="specifikacijaInput[id-'.$data_index.']" data-bs-original-title="" title="">
-                    <input class="form-control form-input-replace file_upload" type="file" id="specifikacija[id-'.$data_index.']" data-bs-original-title="" title="">
-                </div>
-                <div class="col-xl-1 position-relative">
-                    <label class="form-label" for="checkbox[id-'.$data_index.']">I.U.:</label>
+                <div class="row">
+                  <div class="col-6">
+                    <label class="form-label" for="checkbox_spec[id-'.$data_index.']">Spec.:</label>
                     <div class="form-check checkbox mb-0">
-                        <input class="form-check-input form-input-replace iu_check" id="checkbox['.$id.']" '.(isset($data->mixture->ispunjava_uslove) ? "checked" : "") .' type="checkbox" name="items[id-'.$data_index.'][data][content]['.$id.'][ispunjava_uslove]">
-                        <label class="form-label" for="checkbox['.$id.']"></label>
-                    </div>
+                        <input class="form-check-input form-input-replace iu_check" id="checkbox_spec['.$id.']" '.(isset($data->mixture->specifikacije) ? "checked" : "").' type="checkbox" name="items['.$data_index.'][data][content]['.$id.'][specifikacije]">
+                        <label class="form-label" for="checkbox_spec['.$id.']"></label>
+                      </div>
+                  </div>
+                  <div class="col-6">
+                  <label class="form-label" for="checkbox[id-'.$data_index.']">I.U.:</label>
+                  <div class="form-check checkbox mb-0">
+                      <input class="form-check-input form-input-replace iu_check" id="checkbox['.$id.']" '.(isset($data->mixture->ispunjava_uslove) ? "checked" : "") .' type="checkbox" name="items[id-'.$data_index.'][data][content]['.$id.'][ispunjava_uslove]">
+                      <label class="form-label" for="checkbox['.$id.']"></label>
+                  </div>
+                  </div>
                 </div>
+              </div>
+              <div class="handleParent">
+                <i class="icofont icofont-cursor-drag handle"></i>
+              </div>
+
                 <div class="col position-relative align-self-end text-end">
                     <a class="btn btn-square btn-info saveMixture" type="button" data-bs-original-title="" title="">save</a>
                     <a class="btn btn-square btn-danger removeItem" type="button" data-bs-original-title="" title="">x</a>
@@ -445,7 +460,7 @@ class ProductsController extends Controller{
 
                       <div class="col-3">Ostali podaci: <input type="text"  placeholder="" class="form-control "value="'.$data->ingredients->additional->ostali_podaci.'"  name="items[id-'.$data_index.'][data][content]['.$id.'][additional][ostali_podaci]">  </div>
 
-                      <div class="col-3">Zakljucak: <input type="text"  placeholder="" class="form-control "value="'.$data->ingredients->additional->zakljucak.'"  name="items[id-'.$data_index.'][data][content]['.$id.'][additional][zakljucak]">  </div>
+                      <div class="col-3">Zakljucak: <input type="text"  placeholder="" class="form-control "value="'.(isset($data->ingredients->additional->zakljucak) ? $data->ingredients->additional->zakljucak : "").'"  name="items[id-'.$data_index.'][data][content]['.$id.'][additional][zakljucak]">  </div>
                       <div class="col-12 references">Reference: ';
                         foreach($data->ingredients->additional->reference as $referenca){
                         $body .='   

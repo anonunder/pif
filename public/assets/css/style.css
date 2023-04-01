@@ -184,4 +184,20 @@
     margin-left: 280px;
     width: calc(100% - 280px);
 }
-
+.parentClone > div{
+    background: #fff;
+    position: relative;
+}
+.handle:hover{
+    cursor: pointer;
+}
+.handleParent {
+    position: absolute!important;
+    right: -8px;
+    text-align: right;
+    width: 40px;
+    top: 40px;
+}
+.handle {
+    font-size: 26px;
+}

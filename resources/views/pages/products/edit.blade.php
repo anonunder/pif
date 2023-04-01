@@ -242,7 +242,7 @@
                               <label class="form-label" for="fh_reference[{{$index}}]">Koncentracija:</label>
                               <input class="form-control form-input-replace main_conc" id="fh_reference[{{$index}}]" value="{{$trade->koncentracija}}" name="items[{{$index}}][data][content][{{$n}}][koncentracija]" type="text">
                             </div>
-                            <div class="col-xl-1 position-relative">
+                            <div class="col-xl-2 position-relative">
                               <label class="form-label" for="fh_reference[{{$index}}]">Necistoce:</label>
                               <input class="form-control form-input-replace" id="fh_reference[{{$index}}]" value="{{$trade->necistoce}}" name="items[{{$index}}][data][content][{{$n}}][necistoce]" type="text">
                             </div>
@@ -251,16 +251,25 @@
                               <input class="form-control form-input-replace" id="fh_reference[{{$index}}]" value="{{$trade->funkcija}}" name="items[{{$index}}][data][content][{{$n}}][funkcija]" type="text">
                             </div>
                             <div class="col-xl-1 position-relative file_parent">
-                              <label class="form-label" for="specifikacija[{{$index}}]">Specifikacija:</label>
-                              <input type="hidden" value="@if(isset($trade->specifikacija)) {{$trade->specifikacija}} @endif" name="items[{{$index}}][data][content][{{$n}}][specifikacija]" class="specifikacija form-input-replace" id="specifikacijaInput[{{$index}}]" data-bs-original-title="" title="">
-                              <input class="form-control form-input-replace file_upload" type="file" id="specifikacija[{{$index}}]" data-bs-original-title="" title="">
-                            </div>
-                            <div class="col-xl-1 position-relative">
-                              <label class="form-label" for="checkbox[{{$index}}]">I.U.:</label>
-                              <div class="form-check checkbox mb-0">
-                                  <input class="form-check-input form-input-replace iu_check" id="checkbox[{{$n}}]" @if(isset($trade->ispunjava_uslove)) checked @endif type="checkbox" name="items[{{$index}}][data][content][{{$n}}][ispunjava_uslove]">
-                                  <label class="form-label" for="checkbox[{{$n}}]"></label>
+                              <div class="row">
+                                <div class="col-6">
+                                  <label class="form-label" for="checkbox_spec[{{$index}}]">Spec.:</label>
+                                  <div class="form-check checkbox mb-0">
+                                      <input class="form-check-input form-input-replace iu_check" id="checkbox_spec[{{$n}}]" @if(isset($trade->specifikacije)) checked @endif type="checkbox" name="items[{{$index}}][data][content][{{$n}}][specifikacije]">
+                                      <label class="form-label" for="checkbox_spec[{{$n}}]"></label>
+                                    </div>
                                 </div>
+                                <div class="col-6">
+                                  <label class="form-label" for="checkbox[{{$index}}]">I.U.:</label>
+                                  <div class="form-check checkbox mb-0">
+                                      <input class="form-check-input form-input-replace iu_check" id="checkbox[{{$n}}]" @if(isset($trade->ispunjava_uslove)) checked @endif type="checkbox" name="items[{{$index}}][data][content][{{$n}}][ispunjava_uslove]">
+                                      <label class="form-label" for="checkbox[{{$n}}]"></label>
+                                    </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="handleParent">
+                              <i class="icofont icofont-cursor-drag handle"></i>
                             </div>
                             <div class="col position-relative align-self-end text-end">
                               <a class="btn btn-square btn-info saveMixture" type="button" data-bs-original-title="" title="">save</a>

@@ -217,6 +217,7 @@ var table = $('#mixtures_table').DataTable({
   @endif
 @if(Route::currentRouteName() == "products")
 <script src="/assets/js/datatable/datatables/jquery.dataTables.min.js"></script>
+
 <script>
 var table = $('#products_table').DataTable({
         processing: true,
@@ -280,13 +281,32 @@ $(".select2Multi").select2();
 <script src="/assets/js/form-validation-custom.js"></script>
 <script src="/assets/js/editor/summernote/summernote.js"></script>
 <script src="/assets/js/dropzone/dropzone.js"></script>
+<script src="/assets/js/jquery.ui.min.js"></script>
+<script src="/assets/js/dragable/sortable.js"></script>
 <script type="text/javascript">// Immediately after the js include
   Dropzone.autoDiscover = false;
 </script>
+<script>
+(function($) {
+  "use strict";
+})(jQuery);
+  $( function() {
+    $( ".parentClone" ).sortable({
+      revert: true,
+      animation:150,
+      handle: '.handle',
+      axis: "y",
+      change: function(event, ui) {
+      ui.placeholder.css({visibility: 'visible', border : '1px solid #ccc'});
+    }
+    });
+  }); 
+  </script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 @include("layouts.math.functions")
 
 <script>
+ 
   @if(Route::currentRouteName() == "productsEditIndex")
   $(".cst_buttons .download_button").on("click",function(e){
     let that = $(this);

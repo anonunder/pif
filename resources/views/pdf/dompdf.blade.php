@@ -192,9 +192,9 @@ $content_locale = "content_".$locale;
                         }
 
                     }
-                    $spec = array_filter($spec);
-                    $product->pdf_specifications = json_encode($spec);
-                    $product->save();
+                    // $spec = array_filter($spec);
+                    // $product->pdf_specifications = json_encode($spec);
+                    // $product->save();
                     $ar = array_filter($ar);
                     $ar = array_values($ar);
                     $ch_in = \App\Models\Ingredients::find($ar);
