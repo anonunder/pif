@@ -195,6 +195,28 @@ var table = $('#users_table').DataTable({
 @if(Route::currentRouteName() == "mixtures")
 <script src="/assets/js/datatable/datatables/jquery.dataTables.min.js"></script>
 <script>
+$(document).on("click","li.delete a",function(e){
+  let that = $(this);
+  e.preventDefault();
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('input[name="_token"]').val()
+        }
+    });
+    $.ajax({
+      url: that.attr("href"),
+      method: 'get',
+      data: {},
+      cache: false,
+      success: function(data){
+        $('#mixtures_table').DataTable().ajax.reload(null,false);
+      },
+      error: function(data){
+        notify(data.responseJSON.message,"Greska","danger");
+      }
+
+      });
+})
 var table = $('#mixtures_table').DataTable({
         processing: true,
         serverSide: true,

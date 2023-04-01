@@ -88,6 +88,7 @@ Route::get('/mixtures/add', [ProductsController::class, 'mixturesAddIndex'])->na
 Route::get('/mixtures/edit/{id}', [ProductsController::class, 'mixturesEditIndex'])->name('mixturesEditIndex');
 Route::get('/mixtures/get', [ProductsController::class, 'mixturesAll'])->name('mixturesAll');
 Route::post('/mixtures/store', [ProductsController::class, 'mixtureStore'])->name('mixtureStore');
+Route::get('/mixture/delete/{id}', [ProductsController::class, 'mixtureDelete'])->name('mixtureDelete');
 
 
 

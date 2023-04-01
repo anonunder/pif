@@ -65,7 +65,7 @@ class ProductsController extends Controller{
             ->addColumn('action', function($row){
                 $btn = '<ul class="action">
                 <li class="edit"> <a href="'.route("mixturesEditIndex",$row->id).'"><i class="icon-pencil-alt"></i></a></li>
-                <li class="delete"><a href="#"><i class="icon-trash"></i></a></li></ul>';
+                <li class="delete"><a href="'.route("mixtureDelete",$row->id).'"><i class="icon-trash"></i></a></li></ul>';
                 return $btn;
             })
             ->rawColumns(['action'])
@@ -300,6 +300,10 @@ class ProductsController extends Controller{
         $distributors  = Distributors::all(); 
         $ingredients   = Ingredients::select($name,"id",$content)->get();
         return view("pages.products.add", compact('chapters','companies','ingredients','manufacturers','distributors','aneksi'));        
+    }
+
+    public function mixtureDelete($id){
+        $mixture = Mixtures::find($id)->delete();
     }
     
     public function mixtureRender(Request $request){
