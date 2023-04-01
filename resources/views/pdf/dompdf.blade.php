@@ -25,7 +25,7 @@ $content_locale = "content_".$locale;
     </div>
     <div class="col-12 text-center" style="margin: 50px 0;">
         <div style="font-size:12px;" >
-            <span class="blue"><b>{{__("main.pif")}}</b></span><br>
+            <span class="blue"><b>{!!__("main.pif")!!}</b></span><br>
             <span class="blue">{{__("main.pif_2")}}</span><br>
             <span class="blue">{{__("main.product_name")}}: {{$product->name}}, {{__("main.code")}} {{$product->category}}</span>
         </div>
