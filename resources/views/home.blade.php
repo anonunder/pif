@@ -12,7 +12,7 @@
                 <div class="col-sm-6">
                   <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="/"><i data-feather="home"></i></a></li>
-                    <li class="breadcrumb-item active">Dashboard</li>
+                    <li class="breadcrumb-item active">Dashboard 2</li>
                   </ol>
                 </div>
               </div>
@@ -30,7 +30,6 @@
                      <table class="display" id="products_table">
                        <thead>
                          <tr>
-                           <th>ID</th>
                            <th>Name</th>
                            <th>Company</th>
                            <th>Action</th>

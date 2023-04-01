@@ -158,7 +158,6 @@ var table = $('#products_table').DataTable({
           }
         },
         columns: [
-            {data: 'id', name: 'id'},
             {data: 'name', name: 'name'},
             {data: 'company', name: 'company'},
             {data: 'action', name: 'action', orderable: false},
