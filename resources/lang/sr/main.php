@@ -5,7 +5,7 @@ return [
     'products' => 'Proizvodi',
     'product_name'=>'Naziv proizvoda',
     'prepared' => 'Urađeno',
-    'pif' => 'DOSIJE O BEZBEDNOSTI KOZMETIČKOG PROIZVODA (CPSR)',
+    'pif' => 'DOSIJE O BEZBEDNOSTI KOZMETIČKOG PROIZVODA (PIF)<br>IZVESTAJ O BEZBEDNOSTI KOZMETICKOG PROIZVODA (CPSR)',
     'pif_2' => '(U saglasnosti sa EC Uredbom N ̊ 1223/2009)',
     'code' => 'kod',
     'category' => 'Kategorija',
