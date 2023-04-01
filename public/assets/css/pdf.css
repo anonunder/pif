@@ -1,0 +1,85 @@
+ul{
+    list-style: none;
+}
+body .chapter{
+    font-family: DejaVu Sans!important;
+}
+body span.notFont{
+    font-family: 'courier';
+    font-size:12px;
+    font-weight: bold;
+}
+.blue{
+    color: #4465A0;
+}
+table{
+    font-size: 11px;
+}
+.f_b{
+    font-weight: bold;;
+    font-size: 12px;
+}
+
+table.table, 
+table.table tbody > th, 
+table.table tbody > tr > td, 
+table.table tbody > tr {
+    border: 1px solid #000!important;
+}
+
+table.border, 
+table.border > tbody > th, 
+table.border > tbody > tr > td, 
+table.border > tbody > tr {
+    border: 1px solid #000!important;
+}
+table.noborder td{
+    border-bottom: 1px solid #000!important;
+}
+table.noborder tr td{
+    border: none;;
+}
+table.noborder tr:last-child td{
+    border-bottom: none!important;
+
+}
+.page_break { 
+    page-break-before: always; 
+}
+.textValue{
+    font-size: 10px;
+}
+.f_n{
+    font-weight: normal;
+    margin-left: 10px!important;
+    margin-right: 10px!important;
+    font-size: 13px;
+}
+.f_n_t{
+    font-weight: normal;
+    margin-left: 20px!important;
+    margin-right: 20px!important;
+    font-size: 12px;
+}
+.f_b_v{
+    margin-left: 20px!important;
+    margin-right: 20px!important;
+}
+.f_n_t_v{
+    margin-left: 40px!important;
+    margin-right: 40px!important;
+}
+table{
+    width: 100%!important;
+}
+@page { margin-right: 40px; }
+
+.row table.noborder {
+    width: 100%!important;
+}
+.inciList p,
+.inciList span{
+    display: inline;
+    margin: 0;
+    font-size: 12px!important;
+}

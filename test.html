@@ -1,0 +1,60 @@
+<html>
+<head>
+    <title>My PDF</title>
+</head>
+<body>
+<script type="text/php">
+        if ( isset($pdf) ) {
+            $x = 32;
+            $y = 18;
+            $text = "{PAGE_NUM} of {PAGE_COUNT}";
+            $font = $fontMetrics->get_font("helvetica", "bold");
+            $size = 6;
+            $color = array(255,0,0);
+            $word_space = 0.0;  //  default
+            $char_space = 0.0;  //  default
+            $angle = 0.0;   //  default
+            $pdf->page_text($x, $y, $text, $font, $size, $color, $word_space, $char_space, $angle);
+        }
+    </script>
+    <div id="toc"></div>
+    <div id="content">
+        		<h2>Test</h2>
+        <p>123-321-24</p>
+				<h2>Test 2</h2>
+        <p>231-23-21-23</p>
+				<h2>test 23131213</h2>
+        <p>90</p>
+				<h2>Naslov 1231231</h2>
+        <p>18</p>
+				<h2>Test 4</h2>
+        <p>19</p>
+				<h2>Testni proizvod</h2>
+        <p>89</p>
+				<h2>Test 123</h2>
+        <p>57</p>
+				<h2>test 23131213</h2>
+        <p>65</p>
+				<h2>Testno 123</h2>
+        <p>12123312</p>
+				<h2>teteteet</h2>
+        <p>2313131</p>
+				<h2>teettetettete</h2>
+        <p>123123131</p>
+				<h2>asdasdadas</h2>
+        <p>12123132312</p>
+				<h2>aaaaaaaaa</h2>
+        <p>123</p>
+				<h2>ssssssssss</h2>
+        <p>3211</p>
+				<h2>Tesssssssssss</h2>
+        <p>132</p>
+				<h2>Setttttttt</h2>
+        <p>321</p>
+				<h2>Testtttttttttttt</h2>
+        <p>1111111</p>
+				<h2>Sssssssets</h2>
+        <p>1231231</p>
+		    </div>
+</body>
+</html>
