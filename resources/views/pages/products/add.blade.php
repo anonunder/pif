@@ -27,7 +27,7 @@
           <div class="col-lg-12">
             <div class="row">
               <div class="col-12">
-                <form class="row g-3 needs-validation" novalidate="" method="POST" action="{{route('productsStore')}}" enctype="multipart/form-data"> 
+                <form class="row g-3 needs-validation" id="productForm" novalidate="" method="POST" action="{{route('productsStore')}}" enctype="multipart/form-data"> 
                   <input type="hidden" value="{{session()->get('locale')}}" name="product_locale">
                     <div class="col-12 mt-2">
                         <button class="btn btn-primary" type="submit">Save</button>

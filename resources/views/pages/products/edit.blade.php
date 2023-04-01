@@ -27,7 +27,7 @@
           <div class="col-lg-12">
             <div class="row">
               <div class="col-12">
-                <form class="row g-3 needs-validation" novalidate="" method="POST" action="{{route('productsStore')}}" enctype="multipart/form-data"> 
+                <form class="row g-3 needs-validation" id="productForm" novalidate="" method="POST" action="{{route('productsStore')}}" enctype="multipart/form-data"> 
                   @csrf
                 <input type="hidden" name="product_id" id="product_id" value="{{$product->id}}">
                   <input type="hidden" value="{{session()->get('locale')}}" name="product_locale">

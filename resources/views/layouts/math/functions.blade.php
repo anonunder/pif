@@ -82,6 +82,8 @@ $(document).on("change",".sedCalc",function(e){
   mosCalc(element);
 
 });
+
+
 $(document).on("input", ".noael_value,.sed_value",function(e){
   mosCalc($(this));
 });
@@ -281,36 +283,36 @@ function ingredientGet(id){
       return object;
 }
 
-$(document).on("change",".file_upload",function(e){
-  let that    = $(this);
-  let element = that.closest(".file_parent");
-  let spec    = element.find(".specifikacija");
-  var file_data = that.prop('files')[0];   
-  var form_data = new FormData();                  
-  form_data.append('file', file_data);
-  $.ajaxSetup({
-    headers: {
-      'X-CSRF-TOKEN': $('input[name="_token"]').val()
-    }
-  });
-  $.ajax({
-    url: '{{route("specUpload")}}',
-    type: 'post',
-    data: form_data,
-    cache: false,
-    contentType: false,
-    processData: false,
-    success: function(data){
-      if(spec.val() != ""){
-        removeFile(spec.val());
-      }
-      spec.val(data);
+// $(document).on("change",".file_upload",function(e){
+//   let that    = $(this);
+//   let element = that.closest(".file_parent");
+//   let spec    = element.find(".specifikacija");
+//   var file_data = that.prop('files')[0];   
+//   var form_data = new FormData();                  
+//   form_data.append('file', file_data);
+//   $.ajaxSetup({
+//     headers: {
+//       'X-CSRF-TOKEN': $('input[name="_token"]').val()
+//     }
+//   });
+//   $.ajax({
+//     url: '',
+//     type: 'post',
+//     data: form_data,
+//     cache: false,
+//     contentType: false,
+//     processData: false,
+//     success: function(data){
+//       if(spec.val() != ""){
+//         removeFile(spec.val());
+//       }
+//       spec.val(data);
 
-    }
-  });
+//     }
+//   });
 
 
-});
+// });
 
 function removeFile(file){
   $.ajaxSetup({
@@ -328,4 +330,29 @@ function removeFile(file){
     },
   });
 }
+$("#productForm").on("submit",function(e){
+  e.preventDefault();
+  let ac    = true;
+  let array = [
+   ["trade_name", "Trade Ime"],
+   ["dobavljac", "Dobavljac"],
+   ["inci_additional", "INCI"],
+];
+  $.each(array,function(key,el){
+    $("."+el[0]).each(function(k,v){
+      if($(v).val() == "" || $(v).val() == null){
+        $(v).css("border","1px solid red");
+        $(v).closest("div").find("span.selection > span").addClass("borderRed");
+        notify(el[1]+" je prazno","Greska","danger");
+        if(ac){
+          ac = false;
+        }
+      }
+    })
+  })
+  if(ac){
+    $('#productForm')[0].submit();
+  }
+
+})
 </script>
