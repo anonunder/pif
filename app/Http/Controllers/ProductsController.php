@@ -370,7 +370,7 @@ class ProductsController extends Controller{
                   <div class="col-6">
                     <label class="form-label" for="checkbox_spec[id-'.$data_index.']">Spec.:</label>
                     <div class="form-check checkbox mb-0">
-                        <input class="form-check-input form-input-replace iu_check" id="checkbox_spec['.$id.']" '.(isset($data->mixture->specifikacije) ? "checked" : "").' type="checkbox" name="items['.$data_index.'][data][content]['.$id.'][specifikacije]">
+                        <input class="form-check-input form-input-replace iu_check" id="checkbox_spec['.$id.']" '.(isset($data->mixture->specifikacije) ? "checked" : "").' type="checkbox" name="items[id-'.$data_index.'][data][content]['.$id.'][specifikacije]">
                         <label class="form-label" for="checkbox_spec['.$id.']"></label>
                       </div>
                   </div>

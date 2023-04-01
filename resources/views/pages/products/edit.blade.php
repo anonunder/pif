@@ -152,6 +152,7 @@
                 
                 @php
                   $chapterOb = \App\Models\Chapters::find($chapter->id);
+
                   $name      = "name_".session()->get('locale');
                   $inci_name = "inci_name_".session()->get('locale');
                   $content   = "content_".session()->get('locale');
