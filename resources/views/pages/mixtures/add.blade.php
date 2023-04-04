@@ -81,10 +81,12 @@
                         <label class="form-label" for="funkcija">Funkcija:</label>
                         <input class="form-control form-input-replace" value="" id="funkcija" name="mixture[funkcija]" type="text">
                       </div>
-                      <div class="col-xl-3 position-relative file_parent">
+                      <div class="col-xl-3">
                         <label class="form-label" for="specifikacija">Specifikacija:</label>
-                        <input type="hidden" name="mixture[specifikacija]"  value="" class="specifikacija form-input-replace" id="specifikacija">
-                        <input class="form-control file_upload" type="file"  data-bs-original-title="" title="">
+                        <div class="form-check checkbox mb-0">
+                            <input class="form-check-input form-input-replace iu_check" id="checkbox_spec" type="checkbox" name="mixture[specifikacija]">
+                            <label class="form-label" for="checkbox_spec"></label>
+                          </div>
                       </div>
                       <div class="col-xl-1 position-relative">
                         <label class="form-label" for="checkbox">I.U.:</label>
