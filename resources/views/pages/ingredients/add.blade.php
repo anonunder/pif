@@ -84,7 +84,7 @@
                   </div>
                   <div class="col-md-12 position-relative">
                     <label class="form-label" for="regulatory_status">Regulatorni status:</label>
-                    <textarea class="form-control editorMDE" id="regulatory_status" name="regulatory_status" type="text" >Uredba 1223/2009 EU: <br>Direktiva 1227/2008 EC: </textarea>
+                    <textarea class="form-control editorMDE" id="regulatory_status" name="regulatory_status" type="text" >Uredba 1223/2009 EU: <br>Uredba 1227/2008 EC: </textarea>
                   </div>
                 </div>
               </div>

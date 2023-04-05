@@ -21,11 +21,11 @@ class PDFController extends Controller{
     }
     
     public function pdfGenerate($id){
+
         $product     = Products::find($id);
         $company     = $product->company;
         
-echo $id;
-        die();
+
         // return view("pdf.dompdf", compact('product','company'));
 
         $filename    = "/". $product->id . "_" . $product->version . "_" . str_replace(" ","_",$product->name) . ".pdf";

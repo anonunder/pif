@@ -198,12 +198,10 @@ $content_locale = "content_".$locale;
                     $ar = array_filter($ar);
                     $ar = array_values($ar);
                     $ch_in = \App\Models\Ingredients::find($ar);
-                    print_r($ar_in);
-                    die();
                     @endphp
 
                     <div class="col-12">
-                        <span class="f_b_v"><b>{{__("main.ingredients")}}:</b>@foreach($ch_in as $in) {{$in->$inci_name}}, @endforeach</span>
+                        <span class="f_b_v"><b>{{__("main.ingredients")}}:</b>@foreach($ar_in as $in) {{$in['trade_name']}}, @endforeach</span>
                     </div>
                     <div class="col-12">
                         <table class="border">
