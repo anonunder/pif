@@ -110,3 +110,35 @@ Route::get('/users/add', [UserController::class, 'userAdd'])->name('userAdd');
 Route::get('/products/list', [ClientController::class, 'client_products'])->name('client_products');
 Route::get('/product/view/{id}', [ClientController::class, 'productView'])->name('productView');
 Route::get('/client/products/get', [ClientController::class, 'clientProductsGet'])->name('clientProductsGet');
+
+
+
+ //Clear route cache
+ Route::get('/route-cache', function() {
+    \Artisan::call('route:cache');
+    return 'Routes cache cleared';
+});
+
+//Clear config cache
+Route::get('/config-cache', function() {
+    \Artisan::call('config:cache');
+    return 'Config cache cleared';
+}); 
+
+// Clear application cache
+Route::get('/clear-cache', function() {
+    \Artisan::call('cache:clear');
+    return 'Application cache cleared';
+});
+
+// Clear view cache
+Route::get('/view-clear', function() {
+    \Artisan::call('view:clear');
+    return 'View cache cleared';
+});
+
+// Clear cache using reoptimized class
+Route::get('/optimize-clear', function() {
+    \Artisan::call('optimize:clear');
+    return 'View cache cleared';
+});

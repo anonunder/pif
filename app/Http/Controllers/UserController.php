@@ -64,7 +64,7 @@ class UserController extends Controller
                 $user->password = $pass;
                 if($request->has("user_id")){
                     $data = array("email" => $user->email, "name" => $user->name, "pass" => $request->password);
-                    \Mail::to('nikolaranisavljev@gmail.com')->send(new SendCreds($data));
+                    \Mail::to($user->email)->send(new SendCreds($data));
                 }
             }
         }
@@ -74,7 +74,7 @@ class UserController extends Controller
         if($user->save()){
             if(!$request->has("user_id")){
                 $data = array("email" => $user->email, "name" => $user->name, "pass" => $request->password);
-                \Mail::to('nikolaranisavljev@gmail.com')->send(new SendCreds($data));
+                \Mail::to($user->email)->send(new SendCreds($data));
             }
             if($request->has("companies")){
                 $array = array();

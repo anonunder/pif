@@ -23,8 +23,9 @@ class PDFController extends Controller{
     public function pdfGenerate($id){
         $product     = Products::find($id);
         $company     = $product->company;
-
         
+echo $id;
+        die();
         // return view("pdf.dompdf", compact('product','company'));
 
         $filename    = "/". $product->id . "_" . $product->version . "_" . str_replace(" ","_",$product->name) . ".pdf";
@@ -33,13 +34,12 @@ class PDFController extends Controller{
             $headers = array(
                 'Content-Type: application/pdf',
                 );
-
-        return \Response::download($path, $product->id . "_" . $product->version . "_" . str_replace(" ","_",$product->name) . ".pdf", $headers);
+            // return \Response::download($path, $product->id . "_" . $product->version . "_" . str_replace(" ","_",$product->name) . ".pdf", $headers);
         // $dompdf->stream();
         }
 
         $html        = view("pdf.dompdf", compact('product','company'))->render();
-        $html        = mb_convert_encoding($html, 'HTML-ENTITIES', 'UTF-8');
+        // $html        = mb_convert_encoding($html, 'HTML-ENTITIES', 'UTF-8');
         
         $dompdf = new Dompdf();
         $dompdf->set_option('isPhpEnabled', true);
@@ -53,6 +53,9 @@ class PDFController extends Controller{
 
         if($product->pdf_link == null){
             $output = $dompdf->output();
+            header("Cache-Control: no-cache, no-store, must-revalidate");
+            header("Content-Type: application/pdf");
+            header("Content-Length: " . mb_strlen($output, "8bit"));
             $product->pdf_link = "/pdf".$filename;
             file_put_contents($path, $output);
             $product->save();
