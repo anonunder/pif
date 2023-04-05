@@ -343,7 +343,7 @@ $(".select2Multi").select2();
     data: {},
     cache: false,
     success: function(data){
-      window.location="https://app.hammock.rs/product/pdf/generate/"+{{$product->id}};
+    window.location="https://app.hammock.rs/product/pdf/generate/"+{{$product->id}};
       if(that.text() == "PDF Generate"){
         that.text("PDF Download")
       }
