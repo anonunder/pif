@@ -201,7 +201,7 @@ $content_locale = "content_".$locale;
                     @endphp
 
                     <div class="col-12">
-                        <span class="f_b_v"><b>{{__("main.ingredients")}}:</b>@foreach($ar_in as $in) {{$in['trade_name']}}, @endforeach</span>
+                        <span class="f_b_v"><b>{{__("main.ingredients")}}:</b>@foreach($ch_in as $in) {{$in->$inci_name}}, @endforeach</span>
                     </div>
                     <div class="col-12">
                         <table class="border">

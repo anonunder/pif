@@ -14,7 +14,7 @@ return [
     'specifications' => 'Specifikacije',
     'formula_number' => 'Broj formule',
     'date' => 'Datum',
-    'ingredients' => 'Supstance',
+    'ingredients' => 'Sastav/Ingredients',
     'trade_name' => 'Trade name',
     'distributor' => 'Dobavljač',
     'inci_name' => 'INCI naziv',
