@@ -205,3 +205,13 @@
     border: 1px solid red!important;
     border-color: red!important;
 }
+.aneksi .tab-pane p:hover {
+    border-color: #000;
+    border-bottom-style: solid;
+}
+.aneksi .tab-pane p {
+    margin: 15px 0px!important;
+    border-bottom: 1px dotted #ccc;
+    padding-bottom: 10px;
+    transition: .5s all ease;
+}

@@ -14,7 +14,9 @@ $k      = 0;
             <div class="page-title">
               <div class="row">
                 <div class="col-sm-6">
-                  <h3>Product: {{$product->name}}</h3>
+                  <p style="font-size: 22px; margin: 0;">
+                    <b>Company:</b> {{$product->company->name}}
+                </p>
                 </div>
                 <div class="col-sm-6">
                   <ol class="breadcrumb">
@@ -31,18 +33,20 @@ $k      = 0;
 
                 <div class="card">
                     <div class="card-header pb-0">
-                      <h4>PDF</h4>
+                      <h4 class="text-center">Product Information File</h4>
                     </div>
                     <div class="card-body">
                         <div class="row">
+                          
                             <div class="col-10">
                                 <p>{{__("main.product_name")}}: <b>{{$product->name}}</b></p>
-                                <p>{{__("main.formula_number")}}: <b>{{$product->formula}}</b></p>
-                                <p>{{__("main.version")}}: <b>{{$product->version}}</b></p>
-                                <p>{{__("main.category")}}: <b>{{$product->category}}</b></p>
+                                <p>{{__("main.formula_number")}}: <b>{{$product->formula}}</b> - {{__("main.version")}}: <b>{{$product->version}}</b> - {{__("main.category")}}: <b>{{$product->category}}</b></p>
                                 @if($product->pdf_link != null)
-                                <p>PDF Preview: <b><a href="{{$product->pdf_link}}" target="_blank"><i class="icofont icofont-file-pdf" style="font-size: 24px;color: #f81f58;"></i></a></b></p>
-                                <p>PDF Download: <b><a href="{{$product->pdf_link}}" target="_blank" download=""><i class="icofont icofont-file-pdf" style="font-size: 24px;color: #f81f58;"></i></a></b></p>
+                                <div class="cst_buttons mb-3">
+                                  <a href="{{$product->pdf_link}}" download class="btn btn-danger download_button">PDF Download</a>
+                                  <a href="{{$product->pdf_link}}" target="_blank" class="btn btn-success preview_button">PDF Preview</a>
+                                </div>
+                                
                                 @endif
                               </div>
                             <div class="col-2">
@@ -58,7 +62,7 @@ $k      = 0;
                   <div class="card-header pb-0">
                     <h4>Aneks</h4>
                   </div>
-                  <div class="card-body">
+                  <div class="card-body aneksi">
                     <ul class="nav nav-pills" id="pills-tab" role="tablist">
                         @foreach($aneksi as $index => $aneks)
                             @php
