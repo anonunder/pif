@@ -53,6 +53,7 @@ $k      = 0;
                 </div>
 
                 @if($product->pdf_link != null)
+                @if($aneksi)
                 <div class="card">
                   <div class="card-header pb-0">
                     <h4>Aneks</h4>
@@ -142,6 +143,7 @@ $k      = 0;
                       
                     </div>
                   </div> --}}
+                  @endif
                   @endif
 
 

@@ -30,8 +30,8 @@
                      <table class="display" id="products_table">
                        <thead>
                          <tr>
-                           <th>Name</th>
                            <th>Company</th>
+                           <th>Name</th>
                            <th>Action</th>
                          </tr>
                        </thead>
