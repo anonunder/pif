@@ -327,7 +327,6 @@ $(".select2Multi").select2();
 @include("layouts.math.functions")
 
 <script>
- 
   @if(Route::currentRouteName() == "productsEditIndex")
   $(".cst_buttons .download_button").on("click",function(e){
     let that = $(this);
